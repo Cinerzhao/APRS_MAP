@@ -37,6 +37,9 @@ python APRS_extract_3.0.py
 ### 中继及网关路径图
 <img width="843" height="923" alt="图片" src="https://github.com/user-attachments/assets/23a7185c-b12b-4ad7-8069-0dfc62da39ac" />
 
+### 点击通联路径显示原始数据
+<img width="562" height="174" alt="图片" src="https://github.com/user-attachments/assets/5d5a6818-0d32-4dff-a09a-29e15cf169e4" />
+
 ### 时间筛选（右上角）
 <img width="109" height="125" alt="图片" src="https://github.com/user-attachments/assets/5785dbe0-70d5-4962-94ef-7a56581161c1" />
 
