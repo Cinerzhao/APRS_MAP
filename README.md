@@ -46,3 +46,12 @@ python APRS_extract_3.0.py
 ## 建议箱
 感谢大家留下宝贵意见及建议
 Email： cinerzhao@outlook.com
+
+## Star History
+<a href="https://star-history.com/#Cinerzhao/APRS_MAP&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Cinerzhao/APRS_MAP&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Cinerzhao/APRS_MAP&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Cinerzhao/APRS_MAP&type=Date" />
+ </picture>
+</a>
