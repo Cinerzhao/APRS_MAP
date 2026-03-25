@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_559ef316e59f0b882af0478ebc26fee9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+</head>
+<body>
+    
+    
+    <script>
+    window.onload = function() {
+        var container = document.querySelector('.leaflet-control-layers-list');
+        if (!container) return;
+        var btnDiv = document.createElement('div');
+        btnDiv.style.padding = '5px 0'; btnDiv.style.borderBottom = '1px solid #ccc'; btnDiv.style.marginBottom = '5px';
+        btnDiv.innerHTML = '<button id="selectAll" style="padding:2px 5px; cursor:pointer;">全选</button> ' + 
+                           '<button id="deselectAll" style="padding:2px 5px; cursor:pointer;">清空</button>';
+        container.prepend(btnDiv);
+        document.getElementById('selectAll').onclick = function() {
+            var inputs = container.querySelectorAll('input[type="checkbox"]');
+            inputs.forEach(input => { if(!input.checked) input.click(); });
+        };
+        document.getElementById('deselectAll').onclick = function() {
+            var inputs = container.querySelectorAll('input[type="checkbox"]');
+            inputs.forEach(input => { if(input.checked) input.click(); });
+        };
+    };
+    </script>
+    
+    
+            <div class="folium-map" id="map_559ef316e59f0b882af0478ebc26fee9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_559ef316e59f0b882af0478ebc26fee9 = L.map(
+                "map_559ef316e59f0b882af0478ebc26fee9",
+                {
+                    center: [39.98, 116.35],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_171de2a259bc970050abaa3c89b91666 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_171de2a259bc970050abaa3c89b91666.addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var mouse_position_331df93dd0359af62b7bde9bc2e52380 = new L.Control.MousePosition(
+                {
+  "position": "topright",
+  "separator": " | ",
+  "emptyString": "Unavailable",
+  "lngFirst": true,
+  "numDigits": 5,
+  "prefix": "\u5750\u6807:",
+}
+            );
+            mouse_position_331df93dd0359af62b7bde9bc2e52380.options["latFormatter"] =
+                undefined;
+            mouse_position_331df93dd0359af62b7bde9bc2e52380.options["lngFormatter"] =
+                undefined;
+            map_559ef316e59f0b882af0478ebc26fee9.addControl(mouse_position_331df93dd0359af62b7bde9bc2e52380);
+        
+    
+            var marker_8619a1425389f0cc816ddb8a7950d271 = L.marker(
+                [39.88194444444444, 116.03],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var icon_7136976ab990f1d7bdf5624ba362f694 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3c49748dfb6c52a109195c3e20fc31f2 = L.popup({
+  "maxWidth": 500,
+});
+
+        
+            
+                var html_258732f5c7f0091c378b39d8bc63b2a3 = $(`<div id="html_258732f5c7f0091c378b39d8bc63b2a3" style="width: 100.0%; height: 100.0%;">                 <div style="white-space:nowrap; font-family: Microsoft YaHei, sans-serif; font-size:12px; line-height:1.2;">                     <p style="margin:0;"><b style="color:#00008B; font-size:14px;">台站: AAAAAA-3</b></p>                     <hr style='margin:3px 0; border:0; border-top:1px solid #ccc;'>                     <p style="margin:0;"><b>坐标:</b> 116°1'48" E 39°52'55" N</p>                     <p style="margin:0;"><b>消息:</b> 可留空</p>                     <p style="margin:0;"><b>设备:</b> 可留空</p>                 </div>                 </div>`)[0];
+                popup_3c49748dfb6c52a109195c3e20fc31f2.setContent(html_258732f5c7f0091c378b39d8bc63b2a3);
+            
+        
+
+        marker_8619a1425389f0cc816ddb8a7950d271.bindPopup(popup_3c49748dfb6c52a109195c3e20fc31f2)
+        ;
+
+        
+    
+    
+                marker_8619a1425389f0cc816ddb8a7950d271.setIcon(icon_7136976ab990f1d7bdf5624ba362f694);
+            
+    
+            var marker_44a27407eca744b240d174aa99d90d52 = L.marker(
+                [39.88194444444444, 116.03],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var div_icon_aa9dd73ec25f4993c06049604d8e7dd7 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11pt;color:#00008B;font-weight:bold;white-space:nowrap;\"\u003eAAAAAA-3\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [7, 18],
+  "className": "empty",
+});
+        
+    
+                marker_44a27407eca744b240d174aa99d90d52.setIcon(div_icon_aa9dd73ec25f4993c06049604d8e7dd7);
+            
+    
+            var marker_49e6c85e4da2d0bc73456f3e87b13e6d = L.marker(
+                [39.17055555555555, 116.37777777777777],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var icon_ce26a1dfd66919ba27db4410b5ed4438 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d5d092b0c5dc40d617bfbafad9ef1e01 = L.popup({
+  "maxWidth": 500,
+});
+
+        
+            
+                var html_949bc66f5cb79ce5a1d679feedb586d3 = $(`<div id="html_949bc66f5cb79ce5a1d679feedb586d3" style="width: 100.0%; height: 100.0%;">                 <div style="white-space:nowrap; font-family: Microsoft YaHei, sans-serif; font-size:12px; line-height:1.2;">                     <p style="margin:0;"><b style="color:#00008B; font-size:14px;">台站: BBBBBB-10</b></p>                     <hr style='margin:3px 0; border:0; border-top:1px solid #ccc;'>                     <p style="margin:0;"><b>坐标:</b> 116°22'40" E 39°10'14" N</p>                     <p style="margin:0;"><b>消息:</b> 可留空</p>                     <p style="margin:0;"><b>设备:</b> 可留空</p>                 </div>                 </div>`)[0];
+                popup_d5d092b0c5dc40d617bfbafad9ef1e01.setContent(html_949bc66f5cb79ce5a1d679feedb586d3);
+            
+        
+
+        marker_49e6c85e4da2d0bc73456f3e87b13e6d.bindPopup(popup_d5d092b0c5dc40d617bfbafad9ef1e01)
+        ;
+
+        
+    
+    
+                marker_49e6c85e4da2d0bc73456f3e87b13e6d.setIcon(icon_ce26a1dfd66919ba27db4410b5ed4438);
+            
+    
+            var marker_dfd5cfb4ac494cbf186ebcd6448cb79a = L.marker(
+                [39.17055555555555, 116.37777777777777],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var div_icon_b9321184e70834c0037eafc42eb1049c = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11pt;color:#00008B;font-weight:bold;white-space:nowrap;\"\u003eBBBBBB-10\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [7, 18],
+  "className": "empty",
+});
+        
+    
+                marker_dfd5cfb4ac494cbf186ebcd6448cb79a.setIcon(div_icon_b9321184e70834c0037eafc42eb1049c);
+            
+    
+            var marker_3ea75ff3ba2b8182e6e2714b8671fcaf = L.marker(
+                [39.88194444444444, 116.68],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var icon_0f072d40e1dd9151ef38885f22e99636 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_487e5182b4f47e5090bdeade4e396672 = L.popup({
+  "maxWidth": 500,
+});
+
+        
+            
+                var html_9186ffe7b22c349babfc035d3717caa3 = $(`<div id="html_9186ffe7b22c349babfc035d3717caa3" style="width: 100.0%; height: 100.0%;">                 <div style="white-space:nowrap; font-family: Microsoft YaHei, sans-serif; font-size:12px; line-height:1.2;">                     <p style="margin:0;"><b style="color:#00008B; font-size:14px;">台站: CCCCCC-3</b></p>                     <hr style='margin:3px 0; border:0; border-top:1px solid #ccc;'>                     <p style="margin:0;"><b>坐标:</b> 116°40'48" E 39°52'55" N</p>                     <p style="margin:0;"><b>消息:</b> 2</p>                     <p style="margin:0;"><b>设备:</b> 可留空</p>                 </div>                 </div>`)[0];
+                popup_487e5182b4f47e5090bdeade4e396672.setContent(html_9186ffe7b22c349babfc035d3717caa3);
+            
+        
+
+        marker_3ea75ff3ba2b8182e6e2714b8671fcaf.bindPopup(popup_487e5182b4f47e5090bdeade4e396672)
+        ;
+
+        
+    
+    
+                marker_3ea75ff3ba2b8182e6e2714b8671fcaf.setIcon(icon_0f072d40e1dd9151ef38885f22e99636);
+            
+    
+            var marker_f18bcd520e11e7373cb337c85fce1de7 = L.marker(
+                [39.88194444444444, 116.68],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var div_icon_f88c3b25e76009572f87d6d2728c0bd1 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11pt;color:#00008B;font-weight:bold;white-space:nowrap;\"\u003eCCCCCC-3\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [7, 18],
+  "className": "empty",
+});
+        
+    
+                marker_f18bcd520e11e7373cb337c85fce1de7.setIcon(div_icon_f88c3b25e76009572f87d6d2728c0bd1);
+            
+    
+            var marker_7748235382c3a6172d17ac50fd3d70fe = L.marker(
+                [39.68194444444444, 116.03],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var icon_1c229b88bccc4c78b879da260251e4cd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "tower",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a846e8dc089d5c602f6e7aa4f45bbe7 = L.popup({
+  "maxWidth": 500,
+});
+
+        
+            
+                var html_2adb3c034eb3d39c123c98c36c6d0870 = $(`<div id="html_2adb3c034eb3d39c123c98c36c6d0870" style="width: 100.0%; height: 100.0%;">                 <div style="white-space:nowrap; font-family: Microsoft YaHei, sans-serif; font-size:12px; line-height:1.2;">                     <p style="margin:0;"><b style="color:#00008B; font-size:14px;">台站: DDDDDD-10</b></p>                     <hr style='margin:3px 0; border:0; border-top:1px solid #ccc;'>                     <p style="margin:0;"><b>坐标:</b> 116°1'48" E 39°40'55" N</p>                     <p style="margin:0;"><b>消息:</b> 1</p>                     <p style="margin:0;"><b>设备:</b> 可留空</p>                 </div>                 </div>`)[0];
+                popup_9a846e8dc089d5c602f6e7aa4f45bbe7.setContent(html_2adb3c034eb3d39c123c98c36c6d0870);
+            
+        
+
+        marker_7748235382c3a6172d17ac50fd3d70fe.bindPopup(popup_9a846e8dc089d5c602f6e7aa4f45bbe7)
+        ;
+
+        
+    
+    
+                marker_7748235382c3a6172d17ac50fd3d70fe.setIcon(icon_1c229b88bccc4c78b879da260251e4cd);
+            
+    
+            var marker_36a389da64a9a5c1538e3fcd872dacfc = L.marker(
+                [39.68194444444444, 116.03],
+                {
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var div_icon_64686f929466398813b9949e8f7969ab = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11pt;color:#00008B;font-weight:bold;white-space:nowrap;\"\u003eDDDDDD-10\u003c/div\u003e",
+  "iconSize": [150, 36],
+  "iconAnchor": [7, 18],
+  "className": "empty",
+});
+        
+    
+                marker_36a389da64a9a5c1538e3fcd872dacfc.setIcon(div_icon_64686f929466398813b9949e8f7969ab);
+            
+    
+            var feature_group_4421687484d7382fe2b19e740f893a41 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_3a9759bc4fe1d0037055907f6e1891cc = L.polyline(
+                [[40.0, 116.0], [39.88194444444444, 116.03]],
+                {"bubblingMouseEvents": true, "color": "#FF4500", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_4421687484d7382fe2b19e740f893a41);
+        
+    
+            var poly_line_831be21983e9e010f9b59fd8c28b885c = L.polyline(
+                [[40.0, 116.0], [39.88194444444444, 116.03]],
+                {"bubblingMouseEvents": true, "color": "#FF4500", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0, "smoothFactor": 1.0, "stroke": true, "weight": 25}
+            ).addTo(feature_group_4421687484d7382fe2b19e740f893a41);
+        
+    
+        var popup_b8e340a06900c6c9defd43df667b1d3a = L.popup({
+  "maxWidth": 600,
+});
+
+        
+            
+                var html_0d8013fca417a8d670481975f7c8057c = $(`<div id="html_0d8013fca417a8d670481975f7c8057c" style="width: 100.0%; height: 100.0%;"><div style='max-height: 250px; overflow-y: auto; padding:5px; min-width:320px; line-height:1.2;'><b style='color:red;'>[ 距离: 13.37 km ]</b><div style='white-space:nowrap; border-bottom:1px solid #ddd; padding:2px 0; line-height:1.2;'><b>时间:</b> 2026-03-24 13:14:27<br><b>Log:</b> <code>ABCDEF-7>APOG77,AAAAAA-3*,WIDE1*,WIDE2-1,qAS,BBBBBB-10:!/::!!kk!!0  !test</code></div></div></div>`)[0];
+                popup_b8e340a06900c6c9defd43df667b1d3a.setContent(html_0d8013fca417a8d670481975f7c8057c);
+            
+        
+
+        poly_line_831be21983e9e010f9b59fd8c28b885c.bindPopup(popup_b8e340a06900c6c9defd43df667b1d3a)
+        ;
+
+        
+    
+    
+            var marker_cec17fb0a20638149cc6f374f192a032 = L.marker(
+                [40.0, 116.0],
+                {
+}
+            ).addTo(feature_group_4421687484d7382fe2b19e740f893a41);
+        
+    
+            var icon_7482063602eac3540a4497dbf2c1beeb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc0d6d983f4bf313dc8da09a3c6ede5e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4cf0272d75120e3bbf629275724faf91 = $(`<div id="html_4cf0272d75120e3bbf629275724faf91" style="width: 100.0%; height: 100.0%;">                 <div style="white-space:nowrap; font-size:12px; line-height:1.2;">                     <p style="margin:0;"><b style="color:#FF4500; font-size:14px;">发射端: ABCDEF-7</b></p>                     <hr style='margin:3px 0; border:0; border-top:1px solid #ccc;'>                     <p style="margin:0;"><b>纬度:</b> 40.00000</p>                     <p style="margin:0;"><b>经度:</b> 116.00000</p>                 </div>                 </div>`)[0];
+                popup_dc0d6d983f4bf313dc8da09a3c6ede5e.setContent(html_4cf0272d75120e3bbf629275724faf91);
+            
+        
+
+        marker_cec17fb0a20638149cc6f374f192a032.bindPopup(popup_dc0d6d983f4bf313dc8da09a3c6ede5e)
+        ;
+
+        
+    
+    
+                marker_cec17fb0a20638149cc6f374f192a032.setIcon(icon_7482063602eac3540a4497dbf2c1beeb);
+            
+    
+            var poly_line_f9b7df2d7b32f7df3c14690cfb81f915 = L.polyline(
+                [[39.88194444444444, 116.03], [39.17055555555555, 116.37777777777777]],
+                {"bubblingMouseEvents": true, "color": "#0078D7", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0078D7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_4421687484d7382fe2b19e740f893a41);
+        
+    
+            var poly_line_7744a247694752d21855654060d9b158 = L.polyline(
+                [[39.88194444444444, 116.03], [39.17055555555555, 116.37777777777777]],
+                {"bubblingMouseEvents": true, "color": "#0078D7", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0078D7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0, "smoothFactor": 1.0, "stroke": true, "weight": 25}
+            ).addTo(feature_group_4421687484d7382fe2b19e740f893a41);
+        
+    
+        var popup_60560f01ac024cfea291287c3bb81eae = L.popup({
+  "maxWidth": 600,
+});
+
+        
+            
+                var html_01ce0557998a139530ba88a67800be09 = $(`<div id="html_01ce0557998a139530ba88a67800be09" style="width: 100.0%; height: 100.0%;"><div style='max-height: 250px; overflow-y: auto; padding:5px; min-width:320px; line-height:1.2;'><b style='color:red;'>[ 距离: 84.54 km ]</b><div style='white-space:nowrap; border-bottom:1px solid #ddd; padding:2px 0; line-height:1.2;'><b>时间:</b> 2026-03-24 13:14:27<br><b>Log:</b> <code>ABCDEF-7>APOG77,AAAAAA-3*,WIDE1*,WIDE2-1,qAS,BBBBBB-10:!/::!!kk!!0  !test</code></div></div></div>`)[0];
+                popup_60560f01ac024cfea291287c3bb81eae.setContent(html_01ce0557998a139530ba88a67800be09);
+            
+        
+
+        poly_line_7744a247694752d21855654060d9b158.bindPopup(popup_60560f01ac024cfea291287c3bb81eae)
+        ;
+
+        
+    
+    
+            feature_group_4421687484d7382fe2b19e740f893a41.addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var feature_group_1b0068dbd5bf365dbf3116aae905c395 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_0f214ea2daf1d7f47fdfa0fb2a098792 = L.polyline(
+                [[40.0, 116.0], [39.88194444444444, 116.68]],
+                {"bubblingMouseEvents": true, "color": "#FF4500", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.5}
+            ).addTo(feature_group_1b0068dbd5bf365dbf3116aae905c395);
+        
+    
+            var poly_line_4bf93a8e0f8cba41aa66328b3399447a = L.polyline(
+                [[40.0, 116.0], [39.88194444444444, 116.68]],
+                {"bubblingMouseEvents": true, "color": "#FF4500", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF4500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0, "smoothFactor": 1.0, "stroke": true, "weight": 25}
+            ).addTo(feature_group_1b0068dbd5bf365dbf3116aae905c395);
+        
+    
+        var popup_97caa096144935deacf579ca2494b0a5 = L.popup({
+  "maxWidth": 600,
+});
+
+        
+            
+                var html_b66081e49da634bc831f53a66a09ca33 = $(`<div id="html_b66081e49da634bc831f53a66a09ca33" style="width: 100.0%; height: 100.0%;"><div style='max-height: 250px; overflow-y: auto; padding:5px; min-width:320px; line-height:1.2;'><b style='color:red;'>[ 距离: 59.44 km ]</b><div style='white-space:nowrap; border-bottom:1px solid #ddd; padding:2px 0; line-height:1.2;'><b>时间:</b> 2026-03-25 19:20:27<br><b>Log:</b> <code>ABCDEF-7>APOG77,CCCCCC-3*,WIDE1*,WIDE2-1,qAS,DDDDDD-10:!/::!!kk!!0  !test</code></div></div></div>`)[0];
+                popup_97caa096144935deacf579ca2494b0a5.setContent(html_b66081e49da634bc831f53a66a09ca33);
+            
+        
+
+        poly_line_4bf93a8e0f8cba41aa66328b3399447a.bindPopup(popup_97caa096144935deacf579ca2494b0a5)
+        ;
+
+        
+    
+    
+            var marker_1576aa655d455cf5f7da6fdec7d8b3fb = L.marker(
+                [40.0, 116.0],
+                {
+}
+            ).addTo(feature_group_1b0068dbd5bf365dbf3116aae905c395);
+        
+    
+            var icon_389f08113a822ffb244cfa0f339afccd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ba85079db6ced0b026c14564057cda77 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6cf02abe7d9ff5cadd30cb732f20a24 = $(`<div id="html_b6cf02abe7d9ff5cadd30cb732f20a24" style="width: 100.0%; height: 100.0%;">                 <div style="white-space:nowrap; font-size:12px; line-height:1.2;">                     <p style="margin:0;"><b style="color:#FF4500; font-size:14px;">发射端: ABCDEF-7</b></p>                     <hr style='margin:3px 0; border:0; border-top:1px solid #ccc;'>                     <p style="margin:0;"><b>纬度:</b> 40.00000</p>                     <p style="margin:0;"><b>经度:</b> 116.00000</p>                 </div>                 </div>`)[0];
+                popup_ba85079db6ced0b026c14564057cda77.setContent(html_b6cf02abe7d9ff5cadd30cb732f20a24);
+            
+        
+
+        marker_1576aa655d455cf5f7da6fdec7d8b3fb.bindPopup(popup_ba85079db6ced0b026c14564057cda77)
+        ;
+
+        
+    
+    
+                marker_1576aa655d455cf5f7da6fdec7d8b3fb.setIcon(icon_389f08113a822ffb244cfa0f339afccd);
+            
+    
+            var poly_line_d741acee8f799c81790f91088752e95b = L.polyline(
+                [[39.88194444444444, 116.68], [39.68194444444444, 116.03]],
+                {"bubblingMouseEvents": true, "color": "#0078D7", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0078D7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_1b0068dbd5bf365dbf3116aae905c395);
+        
+    
+            var poly_line_c71ca6d61378f98aa6f01e03052ca87f = L.polyline(
+                [[39.88194444444444, 116.68], [39.68194444444444, 116.03]],
+                {"bubblingMouseEvents": true, "color": "#0078D7", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#0078D7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0, "smoothFactor": 1.0, "stroke": true, "weight": 25}
+            ).addTo(feature_group_1b0068dbd5bf365dbf3116aae905c395);
+        
+    
+        var popup_95bde25ffe432389c619ef41142aa289 = L.popup({
+  "maxWidth": 600,
+});
+
+        
+            
+                var html_cfbd439ed7f1b287b90118cf790aab7d = $(`<div id="html_cfbd439ed7f1b287b90118cf790aab7d" style="width: 100.0%; height: 100.0%;"><div style='max-height: 250px; overflow-y: auto; padding:5px; min-width:320px; line-height:1.2;'><b style='color:red;'>[ 距离: 59.83 km ]</b><div style='white-space:nowrap; border-bottom:1px solid #ddd; padding:2px 0; line-height:1.2;'><b>时间:</b> 2026-03-25 19:20:27<br><b>Log:</b> <code>ABCDEF-7>APOG77,CCCCCC-3*,WIDE1*,WIDE2-1,qAS,DDDDDD-10:!/::!!kk!!0  !test</code></div></div></div>`)[0];
+                popup_95bde25ffe432389c619ef41142aa289.setContent(html_cfbd439ed7f1b287b90118cf790aab7d);
+            
+        
+
+        poly_line_c71ca6d61378f98aa6f01e03052ca87f.bindPopup(popup_95bde25ffe432389c619ef41142aa289)
+        ;
+
+        
+    
+    
+            feature_group_1b0068dbd5bf365dbf3116aae905c395.addTo(map_559ef316e59f0b882af0478ebc26fee9);
+        
+    
+            var layer_control_1a6617dadf3b9018d6c141f2bbd58ab8_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_171de2a259bc970050abaa3c89b91666,
+                },
+                overlays :  {
+                    "2026-03-24" : feature_group_4421687484d7382fe2b19e740f893a41,
+                    "2026-03-25" : feature_group_1b0068dbd5bf365dbf3116aae905c395,
+                },
+            };
+            let layer_control_1a6617dadf3b9018d6c141f2bbd58ab8 = L.control.layers(
+                layer_control_1a6617dadf3b9018d6c141f2bbd58ab8_layers.base_layers,
+                layer_control_1a6617dadf3b9018d6c141f2bbd58ab8_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_559ef316e59f0b882af0478ebc26fee9);
+
+        
+</script>
+</html>
